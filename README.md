@@ -1,6 +1,6 @@
 # matconvnet-layers-dump
 
-A (not final) resting place for neural network layers in MatConvNet. Some rigourously tested, others surviving on prayer and fasting.
+A (not so final) resting place for neural network layers in MatConvNet. Most rigourously tested, a few surviving on prayer, fasting and MNIST test alone.
 
 ### List of layers:
 
@@ -10,12 +10,12 @@ A (not final) resting place for neural network layers in MatConvNet. Some rigour
 * Losses:
     - LossRegul: regulariser on the features/activations. L1 or L2. 
     - L2Loss: Regression loss between targets and outputs.
-    - PairwiseLoss: for verification
+    - PairwiseLoss: for verification or siamese networks
         + minimise distance between same pairs
         + maximise distance between different pairs
         + still testing ....
 * Normalizers:
-    - L2Norm: L2-normalize features to 1 in 2-norm. Taken from B-CNN project.
+    - L2Norm: L2-normalize features to 1 in 2-norm. Taken from [B-CNN](https://bitbucket.org/tsungyu/bcnn.git) codebase.
 * Funky/Misc:
     - MixBasis: Form a linear combination of two branches of a network:
         + branch 1 gives a vector
@@ -23,5 +23,5 @@ A (not final) resting place for neural network layers in MatConvNet. Some rigour
         + output of MixBasis is the linear combination of the cols of the matrix using the elements of the vector as weights
     - BatchSplit: split the batch into two -- even and odd numbered samples. This can be pretty handy when training a siamese network for face verification.
 
-### Example usage:
+### Example usage: TODO
 
