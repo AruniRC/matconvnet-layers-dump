@@ -13,7 +13,7 @@ A (not so final) resting place for neural network layers in MatConvNet. Most rig
     - PairwiseLoss: for verification or siamese networks
         + minimise distance between same pairs
         + maximise distance between different pairs
-        + still testing ....
+        + tested on MNIST
 * Normalizers:
     - L2Norm: L2-normalize features to 1 in 2-norm. Taken from [B-CNN](https://bitbucket.org/tsungyu/bcnn.git) codebase.
 * Funky/Misc:
@@ -22,6 +22,12 @@ A (not so final) resting place for neural network layers in MatConvNet. Most rig
         + branch 2 gives a matrix
         + output of MixBasis is the linear combination of the cols of the matrix using the elements of the vector as weights
     - BatchSplit: split the batch into two -- even and odd numbered samples. This can be pretty handy when training a siamese network for face verification.
+
+
+### Source code organization:
+
+Each `vl_*.m` file implements the logic of the forward and backward passes for a layer. Each class file wraps a particular `vl_*.m` function so that they can be used to define a DAG object in MatConvNet. 
+
 
 ### Example usage: TODO
 
