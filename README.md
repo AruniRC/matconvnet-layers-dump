@@ -31,3 +31,13 @@ Each `vl_*.m` file implements the logic of the forward and backward passes for a
 
 ### Example usage: TODO
 
+
+### Adding a conv layer in DAG:
+    % add a fixed layer that sums over all the channels
+    %   -- pred = sum_i(w_i*x_i) + b
+    sum_conv = dagnn.Conv('size',[1 1 785 1],'pad',0,'stride',1,'hasBias',false);
+    net.addLayer('sum_conv', sum_conv, {'wx'}, {'pred'}, {'sum_conv_f', 'sum_conv_b'});
+    net.params(net.getParamIndex('sum_conv_f')).value = ones(1, 1, 785, 1, 'single');
+    net.params(net.getParamIndex('sum_conv_f')).learningRate = 0;
+    net.params(net.getParamIndex('sum_conv_b')).value = single(0);
+    net.params(net.getParamIndex('sum_conv_b')).learningRate = 0; 
